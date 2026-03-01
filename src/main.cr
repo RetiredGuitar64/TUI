@@ -1,4 +1,5 @@
-require "termisu"
+# require "termisu"
+require "./line.cr"
 
 # t = Termisu.new
 
@@ -10,3 +11,5 @@ require "termisu"
 #   t.close
 # end
 
+# line1 = Line.new({0,0},{3,3})
+# pp line1.line
