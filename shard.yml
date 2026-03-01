@@ -1,0 +1,10 @@
+name: tui
+version: 0.1.0
+
+dependencies:
+  termisu:
+    github: omarluq/termisu
+
+targets:
+  tui:
+    main: src/main.cr
