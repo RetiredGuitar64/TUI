@@ -1,15 +1,21 @@
 # require "termisu"
 require "./line.cr"
+require "./render.cr"
 
-# t = Termisu.new
+alias Pos = {Int32, Int32}
 
-#
-# begin
-#   t.set_cell(0, 0, 'H', fg: Termisu::Color.red,   attr: Termisu::Attribute::Bold)
-#   t.render
-# ensure
-#   t.close
-# end
+all_lines = [] of Array(Pos)
 
-# line1 = Line.new({0,0},{3,3})
-# pp line1.line
+line1 = Line.new({0,0}, {50, 15})
+
+
+all_lines << line1.to_points
+
+# 渲染
+renderer = Render.new
+renderer.get_all_dots(all_lines)
+
+renderer.render
+
+# pp renderer.dots
+

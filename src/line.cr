@@ -1,5 +1,3 @@
-require "./dot.cr"
-
 class Line
 
   alias Pos = {Int32, Int32}
@@ -12,7 +10,7 @@ class Line
     @to = to
   end
 
-  def line : Array(Pos)
+  def to_points : Array(Pos)
     points = [] of Pos
 
     x0 = @from[0]
