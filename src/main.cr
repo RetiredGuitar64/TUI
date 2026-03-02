@@ -15,7 +15,17 @@ all_lines << sq1.to_points
 # 渲染
 renderer = Render.new(all_lines)
 
-renderer.render
+
+  renderer.render
+
+  (MAX_X+1).times do
+    (MAX_Y+1).times do
+      print renderer.ch.receive
+    end
+    puts "\n"
+  end
+  # print "\e[2J\e[H"
+  # STDOUT.flush
 
 # pp renderer.dots
 

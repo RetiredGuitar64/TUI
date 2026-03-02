@@ -1,14 +1,15 @@
+MAX_X = 20
+MAX_Y = 70
+
 class Render
-
-  MAX_X = 20
-  MAX_Y = 70
-
-  getter dots
+  getter dots, ch
 
   @dots : Array(Pos)
+  @ch : Channel(String)
 
   def initialize(lines : Array(Array(Pos)))
     @dots = [] of Pos
+    @ch = Channel(String).new()
 
     lines.each do |line|
       line.each do |dot|
@@ -21,12 +22,15 @@ class Render
     (0..MAX_X).each do |x|
       (0..MAX_Y).each do |y|
         if @dots.includes?({x, y})
-          print "█"
+          spawn do 
+            @ch.send "█"
+          end
         else
-          print "."
+          spawn do
+            @ch.send "."
+          end
         end
       end
-      puts "\n"
     end
   end
 
