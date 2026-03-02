@@ -3,8 +3,6 @@ class Render
   MAX_X = 20
   MAX_Y = 70
 
-  alias Pos = {Int32, Int32}
-
   getter dots
 
   @dots : Array(Pos)

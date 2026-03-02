@@ -1,6 +1,6 @@
-class Line
+alias Pos = {Int32, Int32}
 
-  alias Pos = {Int32, Int32}
+class Line
 
   @from : Pos
   @to : Pos

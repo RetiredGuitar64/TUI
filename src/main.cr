@@ -3,8 +3,6 @@ require "./line.cr"
 require "./render.cr"
 require "./square.cr"
 
-alias Pos = {Int32, Int32}
-
 all_lines = [] of Array(Pos)
 
 line1 = Line.new({0, 0}, {20, 70})
