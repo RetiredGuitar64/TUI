@@ -15,8 +15,7 @@ all_lines << sq1.to_points
 
 
 # 渲染
-renderer = Render.new
-renderer.get_all_dots(all_lines)
+renderer = Render.new(all_lines)
 
 renderer.render
 

@@ -9,11 +9,9 @@ class Render
 
   @dots : Array(Pos)
 
-  def initialize
+  def initialize(lines : Array(Array(Pos)))
     @dots = [] of Pos
-  end
 
-  def get_all_dots(lines : Array(Array(Pos)))
     lines.each do |line|
       line.each do |dot|
         @dots << dot
