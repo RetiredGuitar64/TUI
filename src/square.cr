@@ -9,11 +9,7 @@ class Square
   @pos3 : Pos
   @pos4 : Pos
 
-  def initialize(pos1, pos2, pos3, pos4)
-    @pos1 = pos1
-    @pos2 = pos2
-    @pos3 = pos3
-    @pos4 = pos4
+  def initialize(@pos1, @pos2, @pos3, @pos4)
   end
 
   def to_points : Array(Pos)

@@ -25,7 +25,7 @@ class Render
     (0..MAX_X).each do |x|
       (0..MAX_Y).each do |y|
         if @dots.includes?({x, y})
-          print "#"
+          print "█"
         else
           print "."
         end

@@ -5,9 +5,7 @@ class Line
   @from : Pos
   @to : Pos
 
-  def initialize(from, to)
-    @from = from
-    @to = to
+  def initialize(@from, @to)
   end
 
   def to_points : Array(Pos)
