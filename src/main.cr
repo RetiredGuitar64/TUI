@@ -16,6 +16,8 @@ all_lines << sq1.to_points
 renderer = Render.new(all_lines)
 
 renderer.render
+renderer.move_up.render
+
 
 # pp renderer.dots
 
