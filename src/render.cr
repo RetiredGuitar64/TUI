@@ -31,24 +31,38 @@ class Render
     end
   end
 
-  def move_left(time : Int32 = 1)
+  def move(time : Int32 = 1)
     (time).times do
-      new_dots = @dots.map do |(x, y)|
-        { x, y = y - 1 }
+      new_dots = @dots.map do |dot| 
+        yield(dot)  # 将每一个dot抛出，交给后面的move_方向处理
       end
       @dots = new_dots
     end
     self
   end
 
-  def move_up(time : Int32 = 1)
-    (time).times do
-      new_dots = @dots.map do |(x, y)|
-        { x = x - 1, y }
-      end
-      @dots = new_dots
+  def move_left(time : Int32 = 1)
+    move do |(x, y)|
+      { x, y = y - 1}
     end
-    self #确保返回类型为Render 
+  end
+
+  def move_right(time : Int32 = 1)
+    move do |(x, y)|
+      { x, y = y + 1}
+    end
+  end
+
+  def move_up(time : Int32 = 1)
+    move do |(x, y)|
+      { x = x - 1, y }
+    end
+  end
+
+  def move_down(time : Int32 = 1)
+    move do |(x, y)|
+      { x = x + 1, y}
+    end
   end
 
 end
