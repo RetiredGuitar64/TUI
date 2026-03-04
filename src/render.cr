@@ -24,7 +24,7 @@ class Render
         if dots_set.includes?({x, y})
           print "█"
         else
-          print "."
+          print "·"
         end
       end
       puts "\n"
@@ -38,7 +38,7 @@ class Render
       end
       @dots = new_dots
     end
-    self
+    self # 这里保证类型为Render,而不是Array(Tuple(Pos))
   end
 
   def move_left(time : Int32 = 1)

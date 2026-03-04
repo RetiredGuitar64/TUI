@@ -17,8 +17,19 @@ renderer = Render.new(all_lines)
 
 renderer.render
 
+10.times do
+  print "\e[2J\e[H"
+  STDOUT.flush
   renderer.move_down.render
+  sleep 0.5
+end
 
+10.times do
+  print "\e[2J\e[H"
+  STDOUT.flush
+  renderer.move_up.render
+  sleep 0.5
+end
 
 # pp renderer.dots
 
