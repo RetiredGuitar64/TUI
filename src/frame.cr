@@ -6,12 +6,12 @@ class Frame
 
   def initialize
     @all_lines = [] of Array(Pos)
+    @all_lines = get_all_lines  # 这里填满 @all_lines
 
     @renderer = Render.new(@all_lines)
-    self.get_all_lines   # 这里填满 @all_lines
   end
 
-  def start
+   def start
     loop do
       print "\e[2J\e[H"
       STDOUT.flush
