@@ -19,9 +19,12 @@ class Frame
 
   def start
     loop do
+      # 清屏
       print "\e[2J\e[H"
       STDOUT.flush
 
+      @event.check_input
+      # 渲染
       @renderer.render
       update
 
@@ -31,6 +34,12 @@ class Frame
   end
 
   def update
+
     key = @event.event_ch.receive?
+    case key
+    when 'w'
+      @renderer.move_up
+    end
+
   end
 end

@@ -4,14 +4,14 @@ class Event
 
   def initialize
     @event_ch = Channel(Char | Nil).new
+  end
 
-    STDIN.raw do |io|
-      # loop do
-      #   key = io.read_char
-      #   break if key == 'q'
-      #   @event_ch.send(key)
-      # end
-    end
-
+  def check_input
+    # STDIN.raw do |io|
+    #   key = io.read_char
+    #   if key
+    #     @event_ch.send(key)
+    #   end
+    # end
   end
 end
