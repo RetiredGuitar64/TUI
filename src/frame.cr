@@ -26,20 +26,19 @@ class Frame
       @event.check_input
       # 渲染
       @renderer.render
-      update
 
       sleep 0.5
+      update
+
     end
 
   end
 
   def update
-
     key = @event.event_ch.receive?
     case key
     when 'w'
       @renderer.move_up
     end
-
   end
 end

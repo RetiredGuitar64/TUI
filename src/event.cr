@@ -7,11 +7,15 @@ class Event
   end
 
   def check_input
-    # STDIN.raw do |io|
-    #   key = io.read_char
-    #   if key
-    #     @event_ch.send(key)
-    #   end
-    # end
+    spawn do
+      loop do
+        STDIN.raw do |io|
+          key = io.read_char
+          if key
+            @event_ch.send(key)
+          end
+        end
+      end
+    end
   end
 end
