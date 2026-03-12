@@ -28,8 +28,10 @@ class Frame
       @renderer.render
 
       sleep 0.5
+      @event.status_ch.send("sleep end")
       update
 
+      break if @event.event_ch.receive? == 'Q'
     end
 
   end
@@ -41,4 +43,5 @@ class Frame
       @renderer.move_up
     end
   end
+
 end
