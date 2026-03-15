@@ -18,17 +18,17 @@ class Frame
   end
 
   def start
+    @event.check_input
     loop do
       # 清屏
       print "\e[2J\e[H"
       STDOUT.flush
 
-      @event.check_input
       # 渲染
       @renderer.render
 
-      sleep 0.5
-      @event.status_ch.send("sleep end")
+      Fiber.yield
+
       update
 
       break if @event.event_ch.receive? == 'Q'

@@ -4,13 +4,12 @@ class Event
 
   def initialize
     @event_ch = Channel(Char | Nil).new
-    @status_ch = Channel(String).new
+    @status_ch = Channel(Symbol).new
   end
 
   def check_input
     spawn do
-      loop do
-        Fiber.yield if @status_ch.receive == "sleep end"
+      100.times do
 
         STDIN.raw do |io|
           key = io.read_char
@@ -19,6 +18,7 @@ class Event
           end
         end
       end
+      Fiber.yield
     end
   end
 end
