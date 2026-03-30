@@ -9,7 +9,7 @@ class Event
 
   def check_input
     spawn do
-      100.times do
+      10.times do
 
         STDIN.raw do |io|
           key = io.read_char
